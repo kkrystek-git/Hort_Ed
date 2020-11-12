@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Hort_Ed.Models.Seminars>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>2021 Seminars</h2>
+
+<p>
+    Welcome to our 2021 Seminar Catalog. To see more details or enroll, click on the Details or Enroll at the end of each row on the right.
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SeminarTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seasonal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryType)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <b>@Html.DisplayFor(modelItem => item.SeminarTitle)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seasonal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryType)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.SeminarId">Details</a> |
+                <a asp-area="" asp-controller="Enrollments" asp-action="Create">Enroll</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

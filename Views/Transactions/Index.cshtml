@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Hort_Ed.Models.Transactions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Transaction Register</h2>
+
+<p>
+  
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChangeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChangeAction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seminar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangeAction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kit.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seminar.SeminarId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TransactionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole("SeminarParticipant"))
+        {
+        <ul class="nav navbar-nav navbar-right">
+            <li><a asp-controller="Seminars" asp-action="Index">Seminars</a></li>
+            <li><a asp-controller="Enrollments" asp-action="Index">Enrollments</a></li>
+        </ul>
+        }
+    }

@@ -1,0 +1,45 @@
+﻿@model Hort_Ed.Models.Seminars
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>@Html.DisplayFor(model => model.SeminarTitle)</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Details)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+         <dt>
+            @Html.DisplayNameFor(model => model.Seasonal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Seasonal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SeminarId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SeminarId)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-controller="Enrollments" asp-action="Create">Enroll</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
